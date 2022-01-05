@@ -3,7 +3,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Restaurant {
     private String name;
     private String location;
@@ -19,14 +18,18 @@ public class Restaurant {
     }
 
     public boolean isRestaurantOpen() {
-        return true;
-        //DELETE ABOVE STATEMENT AND WRITE CODE HERE
+        if(getCurrentTime().isAfter(this.openingTime) && getCurrentTime().isBefore(this.closingTime)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
 
     public List<Item> getMenu() {
-        return null;
+        return menu;
         //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
     }
 
@@ -59,9 +62,8 @@ public class Restaurant {
                 +"Menu:"+"\n"+getMenu());
 
     }
-
     public String getName() {
-        return name;
+        return this.name;
     }
 
 }
